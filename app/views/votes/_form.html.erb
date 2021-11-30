@@ -16,7 +16,7 @@
 
     <%= f.label :voter_id %>
     <!-- Input for voter_id start -->
-    <%= f.number_field :voter_id, class: voter_class, placeholder: "Enter voter" %>
+    <%= f.collection_select :voter_id, User.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for voter_id end -->
     <% if voter_was_invalid %>
       <% vote.errors.full_messages_for(:voter).each do |message| %>
