@@ -6,6 +6,8 @@ class CompanyResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :questions
+
   # Indirect associations
 
 end

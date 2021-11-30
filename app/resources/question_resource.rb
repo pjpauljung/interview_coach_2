@@ -8,6 +8,8 @@ class QuestionResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :company
+
   has_many   :question_assessments
 
   has_many   :votes
