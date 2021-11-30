@@ -4,6 +4,8 @@ RSpec.describe Company, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:question_sessions) }
+
     it { should have_many(:questions) }
 
     end

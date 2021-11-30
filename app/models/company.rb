@@ -1,6 +1,9 @@
 class Company < ApplicationRecord
   # Direct associations
 
+  has_many   :question_sessions,
+             :dependent => :destroy
+
   has_many   :questions,
              :dependent => :destroy
 

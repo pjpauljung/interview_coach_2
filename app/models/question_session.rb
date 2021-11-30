@@ -1,6 +1,8 @@
 class QuestionSession < ApplicationRecord
   # Direct associations
 
+  belongs_to :company
+
   has_many   :question_assessments,
              :dependent => :destroy
 
