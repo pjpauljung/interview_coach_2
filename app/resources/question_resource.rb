@@ -8,6 +8,8 @@ class QuestionResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :votes
+
   belongs_to :creator,
              resource: UserResource
 
