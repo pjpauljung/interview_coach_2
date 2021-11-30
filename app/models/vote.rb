@@ -3,6 +3,9 @@ class Vote < ApplicationRecord
 
   # Direct associations
 
+  belongs_to :voter,
+             :class_name => "User"
+
   # Indirect associations
 
   # Validations
