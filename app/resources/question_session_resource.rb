@@ -7,6 +7,9 @@ class QuestionSessionResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :interviewee,
+             resource: UserResource
+
   # Indirect associations
 
 end
