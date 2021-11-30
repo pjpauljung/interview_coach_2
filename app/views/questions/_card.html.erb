@@ -29,16 +29,20 @@
 
       <!-- Edit link question start -->
       <div class="col">
-        <%= link_to edit_question_url(question), class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-edit"></i>
+        <% if current_user == @question.creator %>
+          <%= link_to edit_question_url(question), class: "btn btn-block btn-sm btn-outline-secondary" do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
         <% end %>
       </div>
       <!-- Edit link question end -->
 
       <!-- Delete link question start -->
       <div class="col">
-        <%= link_to question, method: :delete, data: { confirm: "Do you really want to delete this question?" }, class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-trash-alt"></i>
+        <% if current_user == @question.creator %>
+          <%= link_to question, method: :delete, data: { confirm: "Do you really want to delete this question?" }, class: "btn btn-block btn-outline-secondary" do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
         <% end %>
       </div>
       <!-- Delete link question end -->
