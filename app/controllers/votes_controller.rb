@@ -1,4 +1,6 @@
 class VotesController < ApplicationController
+  before_action :current_user_must_be_vote_voter, only: [:edit, :update, :destroy] 
+
   before_action :set_vote, only: [:show, :edit, :update, :destroy]
 
   # GET /votes
@@ -57,6 +59,14 @@ class VotesController < ApplicationController
 
 
   private
+
+  def current_user_must_be_vote_voter
+    set_vote
+    unless current_user == @vote.voter
+      redirect_back fallback_location: root_path, alert: "You are not authorized for that."
+    end
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_vote
       @vote = Vote.find(params[:id])
