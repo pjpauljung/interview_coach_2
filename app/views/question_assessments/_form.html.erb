@@ -1,0 +1,83 @@
+<% was_validated = question_assessment.errors.any? %>
+
+<%= form_with(model: question_assessment, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for question_id start -->
+  <div class="form-group">
+    <% question_class = "form-control" %>
+    <% question_was_invalid = question_assessment.errors.include?(:question) %>
+
+    <% if was_validated %>
+      <% if question_was_invalid %>
+        <% question_class << " is-invalid" %>
+      <% else %>
+        <% question_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :question_id %>
+    <!-- Input for question_id start -->
+    <%= f.number_field :question_id, class: question_class, placeholder: "Enter question" %>
+    <!-- Input for question_id end -->
+    <% if question_was_invalid %>
+      <% question_assessment.errors.full_messages_for(:question).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for question_id end -->
+  <!-- Label and input for interviewee_id start -->
+  <div class="form-group">
+    <% interviewee_class = "form-control" %>
+    <% interviewee_was_invalid = question_assessment.errors.include?(:interviewee) %>
+
+    <% if was_validated %>
+      <% if interviewee_was_invalid %>
+        <% interviewee_class << " is-invalid" %>
+      <% else %>
+        <% interviewee_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :interviewee_id %>
+    <!-- Input for interviewee_id start -->
+    <%= f.number_field :interviewee_id, class: interviewee_class, placeholder: "Enter interviewee" %>
+    <!-- Input for interviewee_id end -->
+    <% if interviewee_was_invalid %>
+      <% question_assessment.errors.full_messages_for(:interviewee).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for interviewee_id end -->
+  <!-- Label and input for question_session_id start -->
+  <div class="form-group">
+    <% question_session_class = "form-control" %>
+    <% question_session_was_invalid = question_assessment.errors.include?(:question_session) %>
+
+    <% if was_validated %>
+      <% if question_session_was_invalid %>
+        <% question_session_class << " is-invalid" %>
+      <% else %>
+        <% question_session_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :question_session_id %>
+    <!-- Input for question_session_id start -->
+    <%= f.number_field :question_session_id, class: question_session_class, placeholder: "Enter question session" %>
+    <!-- Input for question_session_id end -->
+    <% if question_session_was_invalid %>
+      <% question_assessment.errors.full_messages_for(:question_session).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for question_session_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>

@@ -1,0 +1,51 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Question Assessment #<%= question_assessment.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Question</dt>
+      <!-- Display question_id start -->
+      <dd><%= question_assessment.question_id %></dd>
+      <!-- Display question_id end -->
+
+      <dt>Interviewee</dt>
+      <!-- Display interviewee_id start -->
+      <dd><%= question_assessment.interviewee_id %></dd>
+      <!-- Display interviewee_id end -->
+
+      <dt>Question session</dt>
+      <!-- Display question_session_id start -->
+      <dd><%= question_assessment.question_session_id %></dd>
+      <!-- Display question_session_id end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back question_assessment, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link question_assessment start -->
+      <div class="col">
+        <%= link_to edit_question_assessment_url(question_assessment), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link question_assessment end -->
+
+      <!-- Delete link question_assessment start -->
+      <div class="col">
+        <%= link_to question_assessment, method: :delete, data: { confirm: "Do you really want to delete this question_assessment?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link question_assessment end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(question_assessment.updated_at) %> ago
+  </div>
+</div>
