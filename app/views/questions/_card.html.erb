@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>Creator</dt>
       <!-- Display creator_id start -->
-      <dd><%= question.creator_id %></dd>
+      <dd>
+        <% if @question.creator.present? %>
+          <%= link_to question.creator, question.creator %>
+        <% end %>
+      </dd>
       <!-- Display creator_id end -->
 
       <dt>Company</dt>
       <!-- Display company_id start -->
-      <dd><%= question.company_id %></dd>
+      <dd>
+        <% if @question.company.present? %>
+          <%= link_to question.company, question.company %>
+        <% end %>
+      </dd>
       <!-- Display company_id end -->
 
       <dt>Question</dt>

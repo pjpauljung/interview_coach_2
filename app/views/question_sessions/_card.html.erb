@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>Interviewee</dt>
       <!-- Display interviewee_id start -->
-      <dd><%= question_session.interviewee_id %></dd>
+      <dd>
+        <% if @question_session.interviewee.present? %>
+          <%= link_to question_session.interviewee, question_session.interviewee %>
+        <% end %>
+      </dd>
       <!-- Display interviewee_id end -->
 
       <dt>Company</dt>
       <!-- Display company_id start -->
-      <dd><%= question_session.company_id %></dd>
+      <dd>
+        <% if @question_session.company.present? %>
+          <%= link_to question_session.company, question_session.company %>
+        <% end %>
+      </dd>
       <!-- Display company_id end -->
 
     </dl>
