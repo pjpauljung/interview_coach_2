@@ -34,6 +34,10 @@
       <div class="list-group list-group-flush">
         <%= render collection: @companies, partial: "list_item", as: :company %>
       </div>
+      <div class="card-footer d-flex justify-content-center">
+        <%= paginate @companies, theme: 'twitter-bootstrap-4' %>
+      </div>
+
     </div>
   </div>
 </div>

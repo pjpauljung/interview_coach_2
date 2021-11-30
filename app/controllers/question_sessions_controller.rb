@@ -5,7 +5,7 @@ class QuestionSessionsController < ApplicationController
 
   # GET /question_sessions
   def index
-    @question_sessions = QuestionSession.all
+    @question_sessions = QuestionSession.page(params[:page]).per(10)
   end
 
   # GET /question_sessions/1
