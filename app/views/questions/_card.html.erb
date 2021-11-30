@@ -1,0 +1,51 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Question #<%= question.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Creator</dt>
+      <!-- Display creator_id start -->
+      <dd><%= question.creator_id %></dd>
+      <!-- Display creator_id end -->
+
+      <dt>Company</dt>
+      <!-- Display company_id start -->
+      <dd><%= question.company_id %></dd>
+      <!-- Display company_id end -->
+
+      <dt>Question</dt>
+      <!-- Display question start -->
+      <dd><%= question.question %></dd>
+      <!-- Display question end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back question, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link question start -->
+      <div class="col">
+        <%= link_to edit_question_url(question), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link question end -->
+
+      <!-- Delete link question start -->
+      <div class="col">
+        <%= link_to question, method: :delete, data: { confirm: "Do you really want to delete this question?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link question end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(question.updated_at) %> ago
+  </div>
+</div>

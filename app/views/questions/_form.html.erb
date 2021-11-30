@@ -1,0 +1,83 @@
+<% was_validated = question.errors.any? %>
+
+<%= form_with(model: question, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for creator_id start -->
+  <div class="form-group">
+    <% creator_class = "form-control" %>
+    <% creator_was_invalid = question.errors.include?(:creator) %>
+
+    <% if was_validated %>
+      <% if creator_was_invalid %>
+        <% creator_class << " is-invalid" %>
+      <% else %>
+        <% creator_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :creator_id %>
+    <!-- Input for creator_id start -->
+    <%= f.number_field :creator_id, class: creator_class, placeholder: "Enter creator" %>
+    <!-- Input for creator_id end -->
+    <% if creator_was_invalid %>
+      <% question.errors.full_messages_for(:creator).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for creator_id end -->
+  <!-- Label and input for company_id start -->
+  <div class="form-group">
+    <% company_class = "form-control" %>
+    <% company_was_invalid = question.errors.include?(:company) %>
+
+    <% if was_validated %>
+      <% if company_was_invalid %>
+        <% company_class << " is-invalid" %>
+      <% else %>
+        <% company_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :company_id %>
+    <!-- Input for company_id start -->
+    <%= f.number_field :company_id, class: company_class, placeholder: "Enter company" %>
+    <!-- Input for company_id end -->
+    <% if company_was_invalid %>
+      <% question.errors.full_messages_for(:company).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for company_id end -->
+  <!-- Label and input for question start -->
+  <div class="form-group">
+    <% question_class = "form-control" %>
+    <% question_was_invalid = question.errors.include?(:question) %>
+
+    <% if was_validated %>
+      <% if question_was_invalid %>
+        <% question_class << " is-invalid" %>
+      <% else %>
+        <% question_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :question %>
+    <!-- Input for question start -->
+    <%= f.text_field :question, class: question_class, placeholder: "Enter question" %>
+    <!-- Input for question end -->
+    <% if question_was_invalid %>
+      <% question.errors.full_messages_for(:question).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for question end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
