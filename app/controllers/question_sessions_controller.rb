@@ -8,6 +8,7 @@ class QuestionSessionsController < ApplicationController
 
   # GET /question_sessions/1
   def show
+    @question_assessment = QuestionAssessment.new
   end
 
   # GET /question_sessions/new
@@ -24,7 +25,12 @@ class QuestionSessionsController < ApplicationController
     @question_session = QuestionSession.new(question_session_params)
 
     if @question_session.save
-      redirect_to @question_session, notice: 'Question session was successfully created.'
+      message = 'QuestionSession was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @question_session, notice: message
+      end
     else
       render :new
     end

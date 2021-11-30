@@ -8,6 +8,8 @@ class CompaniesController < ApplicationController
 
   # GET /companies/1
   def show
+    @question_session = QuestionSession.new
+    @question = Question.new
   end
 
   # GET /companies/new

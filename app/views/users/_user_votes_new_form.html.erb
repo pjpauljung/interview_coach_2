@@ -1,0 +1,32 @@
+<!-- Form vote start -->
+<%= form_with(model: @vote, local: true) do |f| %>
+<!-- Form vote end -->
+
+  <!-- Label and input for voter_id start -->
+  <!-- Input for voter_id start -->
+  <%= f.hidden_field :voter_id, value: @user.id %>
+  <!-- Input for voter_id end -->
+  <!-- Label and input for voter_id end -->
+
+  <!-- Label and input for question_id start -->
+  <div class="form-group">
+    <%= f.label :question_id %>
+
+    <!-- Input for question_id start -->
+    <%= f.text_field :question_id, class: "form-control" %>
+    <!-- Input for question_id end -->
+  </div>
+  <!-- Label and input for question_id end -->
+
+  <!-- Label and input for vote_type start -->
+  <div class="form-group">
+    <%= f.label :vote_type %>
+
+    <!-- Input for vote_type start -->
+    <%= f.text_field :vote_type, class: "form-control" %>
+    <!-- Input for vote_type end -->
+  </div>
+  <!-- Label and input for vote_type end -->
+
+  <%= f.submit "Create vote", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

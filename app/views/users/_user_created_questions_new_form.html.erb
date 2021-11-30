@@ -1,0 +1,32 @@
+<!-- Form question start -->
+<%= form_with(model: @question, local: true) do |f| %>
+<!-- Form question end -->
+
+  <!-- Label and input for creator_id start -->
+  <!-- Input for creator_id start -->
+  <%= f.hidden_field :creator_id, value: @user.id %>
+  <!-- Input for creator_id end -->
+  <!-- Label and input for creator_id end -->
+
+  <!-- Label and input for company_id start -->
+  <div class="form-group">
+    <%= f.label :company_id %>
+
+    <!-- Input for company_id start -->
+    <%= f.text_field :company_id, class: "form-control" %>
+    <!-- Input for company_id end -->
+  </div>
+  <!-- Label and input for company_id end -->
+
+  <!-- Label and input for question start -->
+  <div class="form-group">
+    <%= f.label :question %>
+
+    <!-- Input for question start -->
+    <%= f.text_field :question, class: "form-control" %>
+    <!-- Input for question end -->
+  </div>
+  <!-- Label and input for question end -->
+
+  <%= f.submit "Create question", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

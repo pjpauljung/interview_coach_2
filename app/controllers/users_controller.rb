@@ -8,6 +8,10 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
+    @question_session = QuestionSession.new
+    @question_assessment = QuestionAssessment.new
+    @question = Question.new
+    @vote = Vote.new
   end
 
   # GET /users/new

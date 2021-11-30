@@ -24,7 +24,12 @@ class QuestionAssessmentsController < ApplicationController
     @question_assessment = QuestionAssessment.new(question_assessment_params)
 
     if @question_assessment.save
-      redirect_to @question_assessment, notice: 'Question assessment was successfully created.'
+      message = 'QuestionAssessment was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @question_assessment, notice: message
+      end
     else
       render :new
     end

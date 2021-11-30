@@ -8,6 +8,8 @@ class QuestionsController < ApplicationController
 
   # GET /questions/1
   def show
+    @question_assessment = QuestionAssessment.new
+    @vote = Vote.new
   end
 
   # GET /questions/new
@@ -24,7 +26,12 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
 
     if @question.save
-      redirect_to @question, notice: 'Question was successfully created.'
+      message = 'Question was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @question, notice: message
+      end
     else
       render :new
     end
