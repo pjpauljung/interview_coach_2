@@ -29,16 +29,20 @@
 
       <!-- Edit link question_assessment start -->
       <div class="col">
-        <%= link_to edit_question_assessment_url(question_assessment), class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-edit"></i>
+        <% if current_user == @question_assessment.interviewee %>
+          <%= link_to edit_question_assessment_url(question_assessment), class: "btn btn-block btn-sm btn-outline-secondary" do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
         <% end %>
       </div>
       <!-- Edit link question_assessment end -->
 
       <!-- Delete link question_assessment start -->
       <div class="col">
-        <%= link_to question_assessment, method: :delete, data: { confirm: "Do you really want to delete this question_assessment?" }, class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-trash-alt"></i>
+        <% if current_user == @question_assessment.interviewee %>
+          <%= link_to question_assessment, method: :delete, data: { confirm: "Do you really want to delete this question_assessment?" }, class: "btn btn-block btn-outline-secondary" do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
         <% end %>
       </div>
       <!-- Delete link question_assessment end -->
