@@ -4,6 +4,8 @@ RSpec.describe Question, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:question_assessments) }
+
     it { should have_many(:votes) }
 
     it { should belong_to(:creator) }

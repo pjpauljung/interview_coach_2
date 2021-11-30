@@ -1,6 +1,9 @@
 class Question < ApplicationRecord
   # Direct associations
 
+  has_many   :question_assessments,
+             :dependent => :destroy
+
   has_many   :votes,
              :dependent => :destroy
 
