@@ -1,6 +1,5 @@
 ActiveAdmin.register QuestionSession do
-
- permit_params :interviewee_id, :company_id
+  permit_params :interviewee_id, :company_id
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -14,5 +13,4 @@ ActiveAdmin.register QuestionSession do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
 end

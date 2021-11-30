@@ -16,5 +16,4 @@ class QuestionAssessmentResource < ApplicationResource
              resource: UserResource
 
   # Indirect associations
-
 end

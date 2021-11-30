@@ -13,7 +13,7 @@ class Api::V1::QuestionSessionsController < Api::V1::GraphitiController
     question_session = QuestionSessionResource.build(params)
 
     if question_session.save
-      render jsonapi: question_session, status: 201
+      render jsonapi: question_session, status: :created
     else
       render jsonapi_errors: question_session
     end
@@ -33,7 +33,7 @@ class Api::V1::QuestionSessionsController < Api::V1::GraphitiController
     question_session = QuestionSessionResource.find(params)
 
     if question_session.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: question_session
     end

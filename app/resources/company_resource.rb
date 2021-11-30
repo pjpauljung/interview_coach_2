@@ -11,5 +11,4 @@ class CompanyResource < ApplicationResource
   has_many   :questions
 
   # Indirect associations
-
 end

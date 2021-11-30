@@ -2,10 +2,10 @@ class Company < ApplicationRecord
   # Direct associations
 
   has_many   :question_sessions,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :questions,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
@@ -16,5 +16,4 @@ class Company < ApplicationRecord
   def to_s
     company_name
   end
-
 end

@@ -15,5 +15,4 @@ class QuestionSessionResource < ApplicationResource
              resource: UserResource
 
   # Indirect associations
-
 end

@@ -4,10 +4,10 @@ class QuestionSession < ApplicationRecord
   belongs_to :company
 
   has_many   :question_assessments,
-             :dependent => :destroy
+             dependent: :destroy
 
   belongs_to :interviewee,
-             :class_name => "User"
+             class_name: "User"
 
   # Indirect associations
 
@@ -18,5 +18,4 @@ class QuestionSession < ApplicationRecord
   def to_s
     interviewee.to_s
   end
-
 end

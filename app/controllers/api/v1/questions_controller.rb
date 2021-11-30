@@ -13,7 +13,7 @@ class Api::V1::QuestionsController < Api::V1::GraphitiController
     question = QuestionResource.build(params)
 
     if question.save
-      render jsonapi: question, status: 201
+      render jsonapi: question, status: :created
     else
       render jsonapi_errors: question
     end
@@ -33,7 +33,7 @@ class Api::V1::QuestionsController < Api::V1::GraphitiController
     question = QuestionResource.find(params)
 
     if question.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: question
     end

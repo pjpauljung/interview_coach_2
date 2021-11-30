@@ -13,7 +13,7 @@ class Api::V1::CompaniesController < Api::V1::GraphitiController
     company = CompanyResource.build(params)
 
     if company.save
-      render jsonapi: company, status: 201
+      render jsonapi: company, status: :created
     else
       render jsonapi_errors: company
     end
@@ -33,7 +33,7 @@ class Api::V1::CompaniesController < Api::V1::GraphitiController
     company = CompanyResource.find(params)
 
     if company.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: company
     end

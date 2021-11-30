@@ -4,13 +4,13 @@ class Question < ApplicationRecord
   belongs_to :company
 
   has_many   :question_assessments,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :votes,
-             :dependent => :destroy
+             dependent: :destroy
 
   belongs_to :creator,
-             :class_name => "User"
+             class_name: "User"
 
   # Indirect associations
 
@@ -21,5 +21,4 @@ class Question < ApplicationRecord
   def to_s
     creator.to_s
   end
-
 end

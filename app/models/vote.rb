@@ -1,12 +1,12 @@
 class Vote < ApplicationRecord
-  enum vote_type: {"upvote"=>0, "downvote"=>1} 
+  enum vote_type: { "upvote" => 0, "downvote" => 1 }
 
   # Direct associations
 
   belongs_to :question
 
   belongs_to :voter,
-             :class_name => "User"
+             class_name: "User"
 
   # Indirect associations
 
@@ -17,5 +17,4 @@ class Vote < ApplicationRecord
   def to_s
     voter.to_s
   end
-
 end

@@ -14,5 +14,4 @@ class VoteResource < ApplicationResource
              resource: UserResource
 
   # Indirect associations
-
 end

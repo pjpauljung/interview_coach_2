@@ -1,24 +1,23 @@
 class User < ApplicationRecord
-  
   include JwtToken
-# Direct associations
+  # Direct associations
 
   has_many   :question_sessions,
-             :foreign_key => "interviewee_id",
-             :dependent => :destroy
+             foreign_key: "interviewee_id",
+             dependent: :destroy
 
   has_many   :question_assessments,
-             :foreign_key => "interviewee_id",
-             :dependent => :destroy
+             foreign_key: "interviewee_id",
+             dependent: :destroy
 
   has_many   :created_questions,
-             :class_name => "Question",
-             :foreign_key => "creator_id",
-             :dependent => :destroy
+             class_name: "Question",
+             foreign_key: "creator_id",
+             dependent: :destroy
 
   has_many   :votes,
-             :foreign_key => "voter_id",
-             :dependent => :destroy
+             foreign_key: "voter_id",
+             dependent: :destroy
 
   # Indirect associations
 

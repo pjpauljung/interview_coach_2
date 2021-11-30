@@ -1,9 +1,7 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe User, type: :model do
-  
-    describe "Direct Associations" do
-
+  describe "Direct Associations" do
     it { should have_many(:question_sessions) }
 
     it { should have_many(:question_assessments) }
@@ -11,14 +9,11 @@ RSpec.describe User, type: :model do
     it { should have_many(:created_questions) }
 
     it { should have_many(:votes) }
+  end
 
-    end
+  describe "InDirect Associations" do
+  end
 
-    describe "InDirect Associations" do
-
-    end
-
-    describe "Validations" do
-
-    end
+  describe "Validations" do
+  end
 end

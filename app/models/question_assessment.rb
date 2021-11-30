@@ -6,7 +6,7 @@ class QuestionAssessment < ApplicationRecord
   belongs_to :question
 
   belongs_to :interviewee,
-             :class_name => "User"
+             class_name: "User"
 
   # Indirect associations
 
@@ -17,5 +17,4 @@ class QuestionAssessment < ApplicationRecord
   def to_s
     question.to_s
   end
-
 end

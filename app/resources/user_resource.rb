@@ -24,5 +24,4 @@ class UserResource < ApplicationResource
              foreign_key: :voter_id
 
   # Indirect associations
-
 end
