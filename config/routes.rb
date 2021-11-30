@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :companies
   resources :question_sessions
   resources :question_assessments
   resources :questions
