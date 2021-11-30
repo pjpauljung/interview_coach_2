@@ -5,25 +5,20 @@ class QuestionAssessmentsController < ApplicationController
   before_action :set_question_assessment,
                 only: %i[show edit update destroy]
 
-  # GET /question_assessments
   def index
     @q = QuestionAssessment.ransack(params[:q])
     @question_assessments = @q.result(distinct: true).includes(:interviewee,
                                                                :question, :question_session).page(params[:page]).per(10)
   end
 
-  # GET /question_assessments/1
   def show; end
 
-  # GET /question_assessments/new
   def new
     @question_assessment = QuestionAssessment.new
   end
 
-  # GET /question_assessments/1/edit
   def edit; end
 
-  # POST /question_assessments
   def create
     @question_assessment = QuestionAssessment.new(question_assessment_params)
 
@@ -39,7 +34,6 @@ class QuestionAssessmentsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /question_assessments/1
   def update
     if @question_assessment.update(question_assessment_params)
       redirect_to @question_assessment,
@@ -49,7 +43,6 @@ class QuestionAssessmentsController < ApplicationController
     end
   end
 
-  # DELETE /question_assessments/1
   def destroy
     @question_assessment.destroy
     message = "QuestionAssessment was successfully deleted."
@@ -70,12 +63,10 @@ class QuestionAssessmentsController < ApplicationController
     end
   end
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_question_assessment
     @question_assessment = QuestionAssessment.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def question_assessment_params
     params.require(:question_assessment).permit(:question_id,
                                                 :interviewee_id, :question_session_id)
