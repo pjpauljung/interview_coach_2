@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "votes#index"
   resources :companies
   resources :question_sessions
   resources :question_assessments
