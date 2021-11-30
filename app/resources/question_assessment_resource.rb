@@ -8,6 +8,8 @@ class QuestionAssessmentResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :question_session
+
   belongs_to :question
 
   belongs_to :interviewee,
