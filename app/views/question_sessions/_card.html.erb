@@ -1,0 +1,46 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Question Session #<%= question_session.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Interviewee</dt>
+      <!-- Display interviewee_id start -->
+      <dd><%= question_session.interviewee_id %></dd>
+      <!-- Display interviewee_id end -->
+
+      <dt>Company</dt>
+      <!-- Display company_id start -->
+      <dd><%= question_session.company_id %></dd>
+      <!-- Display company_id end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back question_session, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link question_session start -->
+      <div class="col">
+        <%= link_to edit_question_session_url(question_session), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link question_session end -->
+
+      <!-- Delete link question_session start -->
+      <div class="col">
+        <%= link_to question_session, method: :delete, data: { confirm: "Do you really want to delete this question_session?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link question_session end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(question_session.updated_at) %> ago
+  </div>
+</div>

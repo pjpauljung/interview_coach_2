@@ -1,0 +1,57 @@
+<% was_validated = question_session.errors.any? %>
+
+<%= form_with(model: question_session, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for interviewee_id start -->
+  <div class="form-group">
+    <% interviewee_class = "form-control" %>
+    <% interviewee_was_invalid = question_session.errors.include?(:interviewee) %>
+
+    <% if was_validated %>
+      <% if interviewee_was_invalid %>
+        <% interviewee_class << " is-invalid" %>
+      <% else %>
+        <% interviewee_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :interviewee_id %>
+    <!-- Input for interviewee_id start -->
+    <%= f.number_field :interviewee_id, class: interviewee_class, placeholder: "Enter interviewee" %>
+    <!-- Input for interviewee_id end -->
+    <% if interviewee_was_invalid %>
+      <% question_session.errors.full_messages_for(:interviewee).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for interviewee_id end -->
+  <!-- Label and input for company_id start -->
+  <div class="form-group">
+    <% company_class = "form-control" %>
+    <% company_was_invalid = question_session.errors.include?(:company) %>
+
+    <% if was_validated %>
+      <% if company_was_invalid %>
+        <% company_class << " is-invalid" %>
+      <% else %>
+        <% company_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :company_id %>
+    <!-- Input for company_id start -->
+    <%= f.number_field :company_id, class: company_class, placeholder: "Enter company" %>
+    <!-- Input for company_id end -->
+    <% if company_was_invalid %>
+      <% question_session.errors.full_messages_for(:company).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for company_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
