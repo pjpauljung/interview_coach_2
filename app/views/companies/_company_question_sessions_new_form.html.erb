@@ -3,13 +3,9 @@
 <!-- Form question_session end -->
 
   <!-- Label and input for interviewee_id start -->
-  <div class="form-group">
-    <%= f.label :interviewee_id %>
-
-    <!-- Input for interviewee_id start -->
-    <%= f.collection_select :interviewee_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for interviewee_id end -->
-  </div>
+  <!-- Input for "interviewee_id" start -->
+  <%= f.hidden_field :interviewee_id, value: current_user.id %>
+  <!-- Input for "interviewee_id" end -->
   <!-- Label and input for interviewee_id end -->
 
   <!-- Label and input for company_id start -->
