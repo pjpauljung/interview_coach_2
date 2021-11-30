@@ -1,32 +1,18 @@
-<!-- Form vote start -->
 <%= form_with(model: @vote, local: true) do |f| %>
-<!-- Form vote end -->
 
-  <!-- Label and input for voter_id start -->
-  <!-- Input for voter_id start -->
   <%= f.hidden_field :voter_id, value: @user.id %>
-  <!-- Input for voter_id end -->
-  <!-- Label and input for voter_id end -->
 
-  <!-- Label and input for question_id start -->
   <div class="form-group">
     <%= f.label :question_id %>
 
-    <!-- Input for question_id start -->
     <%= f.collection_select :question_id, Question.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for question_id end -->
   </div>
-  <!-- Label and input for question_id end -->
 
-  <!-- Label and input for vote_type start -->
   <div class="form-group">
     <%= f.label :vote_type %>
 
-    <!-- Input for vote_type start -->
     <%= f.select :vote_type, options_for_select(Vote.vote_types.keys), {}, class: "form-control" %>
-    <!-- Input for vote_type end -->
   </div>
-  <!-- Label and input for vote_type end -->
 
   <%= f.submit "Create vote", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

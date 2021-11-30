@@ -6,31 +6,25 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Question</dt>
-      <!-- Display question_id start -->
       <dd>
         <% if @question_assessment.question.present? %>
           <%= link_to question_assessment.question, question_assessment.question %>
         <% end %>
       </dd>
-      <!-- Display question_id end -->
 
       <dt>Interviewee</dt>
-      <!-- Display interviewee_id start -->
       <dd>
         <% if @question_assessment.interviewee.present? %>
           <%= link_to question_assessment.interviewee, question_assessment.interviewee %>
         <% end %>
       </dd>
-      <!-- Display interviewee_id end -->
 
       <dt>Question session</dt>
-      <!-- Display question_session_id start -->
       <dd>
         <% if @question_assessment.question_session.present? %>
           <%= link_to question_assessment.question_session, question_assessment.question_session %>
         <% end %>
       </dd>
-      <!-- Display question_session_id end -->
 
     </dl>
 
@@ -39,7 +33,6 @@
         <%= link_to_show_or_back question_assessment, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link question_assessment start -->
       <div class="col">
         <% if current_user == @question_assessment.interviewee %>
           <%= link_to edit_question_assessment_url(question_assessment), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -47,9 +40,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link question_assessment end -->
 
-      <!-- Delete link question_assessment start -->
       <div class="col">
         <% if current_user == @question_assessment.interviewee %>
           <%= link_to question_assessment, method: :delete, data: { confirm: "Do you really want to delete this question_assessment?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -57,7 +48,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link question_assessment end -->
     </div>
   </div>
 

@@ -6,22 +6,18 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Interviewee</dt>
-      <!-- Display interviewee_id start -->
       <dd>
         <% if @question_session.interviewee.present? %>
           <%= link_to question_session.interviewee, question_session.interviewee %>
         <% end %>
       </dd>
-      <!-- Display interviewee_id end -->
 
       <dt>Company</dt>
-      <!-- Display company_id start -->
       <dd>
         <% if @question_session.company.present? %>
           <%= link_to question_session.company, question_session.company %>
         <% end %>
       </dd>
-      <!-- Display company_id end -->
 
     </dl>
 
@@ -30,7 +26,6 @@
         <%= link_to_show_or_back question_session, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link question_session start -->
       <div class="col">
         <% if current_user == @question_session.interviewee %>
           <%= link_to edit_question_session_url(question_session), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -38,9 +33,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link question_session end -->
 
-      <!-- Delete link question_session start -->
       <div class="col">
         <% if current_user == @question_session.interviewee %>
           <%= link_to question_session, method: :delete, data: { confirm: "Do you really want to delete this question_session?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -48,7 +41,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link question_session end -->
     </div>
   </div>
 

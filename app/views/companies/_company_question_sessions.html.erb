@@ -10,26 +10,20 @@
   <ul class="list-group list-group-flush">
     <% @company.question_sessions.each do |question_session| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to question_session, question_session %>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <% if current_user == question_session.interviewee %>
           <%= link_to question_session, method: :delete do %>
             <i class="fas fa-trash-alt"></i>
           <% end %>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="company_question_sessions_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "companies/company_question_sessions_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

@@ -1,12 +1,7 @@
 <% was_validated = question_session.errors.any? %>
 
 <%= form_with(model: question_session, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for interviewee_id start -->
-  <!-- Input for "interviewee_id" start -->
   <%= f.hidden_field :interviewee_id, value: current_user.id %>
-  <!-- Input for "interviewee_id" end -->
-  <!-- Label and input for interviewee_id end -->
-  <!-- Label and input for company_id start -->
   <div class="form-group">
     <% company_class = "form-control" %>
     <% company_was_invalid = question_session.errors.include?(:company) %>
@@ -20,9 +15,7 @@
     <% end %>
 
     <%= f.label :company_id %>
-    <!-- Input for company_id start -->
     <%= f.collection_select :company_id, Company.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for company_id end -->
     <% if company_was_invalid %>
       <% question_session.errors.full_messages_for(:company).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -31,6 +24,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for company_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

@@ -1,12 +1,7 @@
 <% was_validated = question.errors.any? %>
 
 <%= form_with(model: question, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for creator_id start -->
-  <!-- Input for "creator_id" start -->
   <%= f.hidden_field :creator_id, value: current_user.id %>
-  <!-- Input for "creator_id" end -->
-  <!-- Label and input for creator_id end -->
-  <!-- Label and input for company_id start -->
   <div class="form-group">
     <% company_class = "form-control" %>
     <% company_was_invalid = question.errors.include?(:company) %>
@@ -20,9 +15,7 @@
     <% end %>
 
     <%= f.label :company_id %>
-    <!-- Input for company_id start -->
     <%= f.collection_select :company_id, Company.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for company_id end -->
     <% if company_was_invalid %>
       <% question.errors.full_messages_for(:company).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -31,8 +24,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for company_id end -->
-  <!-- Label and input for question start -->
   <div class="form-group">
     <% question_class = "form-control" %>
     <% question_was_invalid = question.errors.include?(:question) %>
@@ -46,9 +37,7 @@
     <% end %>
 
     <%= f.label :question %>
-    <!-- Input for question start -->
     <%= f.text_field :question, class: question_class, placeholder: "Enter question" %>
-    <!-- Input for question end -->
     <% if question_was_invalid %>
       <% question.errors.full_messages_for(:question).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -57,6 +46,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for question end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

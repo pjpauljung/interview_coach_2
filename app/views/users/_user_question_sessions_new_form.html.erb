@@ -1,22 +1,12 @@
-<!-- Form question_session start -->
 <%= form_with(model: @question_session, local: true) do |f| %>
-<!-- Form question_session end -->
 
-  <!-- Label and input for interviewee_id start -->
-  <!-- Input for interviewee_id start -->
   <%= f.hidden_field :interviewee_id, value: @user.id %>
-  <!-- Input for interviewee_id end -->
-  <!-- Label and input for interviewee_id end -->
 
-  <!-- Label and input for company_id start -->
   <div class="form-group">
     <%= f.label :company_id %>
 
-    <!-- Input for company_id start -->
     <%= f.collection_select :company_id, Company.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for company_id end -->
   </div>
-  <!-- Label and input for company_id end -->
 
   <%= f.submit "Create question session", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

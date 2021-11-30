@@ -6,27 +6,21 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Voter</dt>
-      <!-- Display voter_id start -->
       <dd>
         <% if @vote.voter.present? %>
           <%= link_to vote.voter, vote.voter %>
         <% end %>
       </dd>
-      <!-- Display voter_id end -->
 
       <dt>Question</dt>
-      <!-- Display question_id start -->
       <dd>
         <% if @vote.question.present? %>
           <%= link_to vote.question, vote.question %>
         <% end %>
       </dd>
-      <!-- Display question_id end -->
 
       <dt>Vote type</dt>
-      <!-- Display vote_type start -->
       <dd><%= vote.vote_type %></dd>
-      <!-- Display vote_type end -->
 
     </dl>
 
@@ -35,7 +29,6 @@
         <%= link_to_show_or_back vote, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link vote start -->
       <div class="col">
         <% if current_user == @vote.voter %>
           <%= link_to edit_vote_url(vote), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -43,9 +36,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link vote end -->
 
-      <!-- Delete link vote start -->
       <div class="col">
         <% if current_user == @vote.voter %>
           <%= link_to vote, method: :delete, data: { confirm: "Do you really want to delete this vote?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -53,7 +44,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link vote end -->
     </div>
   </div>
 

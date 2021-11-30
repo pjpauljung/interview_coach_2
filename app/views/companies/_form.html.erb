@@ -1,7 +1,6 @@
 <% was_validated = company.errors.any? %>
 
 <%= form_with(model: company, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for company_name start -->
   <div class="form-group">
     <% company_name_class = "form-control" %>
     <% company_name_was_invalid = company.errors.include?(:company_name) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :company_name %>
-    <!-- Input for company_name start -->
     <%= f.text_field :company_name, class: company_name_class, placeholder: "Enter company name" %>
-    <!-- Input for company_name end -->
     <% if company_name_was_invalid %>
       <% company.errors.full_messages_for(:company_name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,6 +23,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for company_name end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

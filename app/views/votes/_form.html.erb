@@ -1,12 +1,7 @@
 <% was_validated = vote.errors.any? %>
 
 <%= form_with(model: vote, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for voter_id start -->
-  <!-- Input for "voter_id" start -->
   <%= f.hidden_field :voter_id, value: current_user.id %>
-  <!-- Input for "voter_id" end -->
-  <!-- Label and input for voter_id end -->
-  <!-- Label and input for question_id start -->
   <div class="form-group">
     <% question_class = "form-control" %>
     <% question_was_invalid = vote.errors.include?(:question) %>
@@ -20,9 +15,7 @@
     <% end %>
 
     <%= f.label :question_id %>
-    <!-- Input for question_id start -->
     <%= f.collection_select :question_id, Question.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for question_id end -->
     <% if question_was_invalid %>
       <% vote.errors.full_messages_for(:question).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -31,8 +24,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for question_id end -->
-  <!-- Label and input for vote_type start -->
   <div class="form-group">
     <% vote_type_class = "form-control" %>
     <% vote_type_was_invalid = vote.errors.include?(:vote_type) %>
@@ -46,9 +37,7 @@
     <% end %>
 
     <%= f.label :vote_type %>
-    <!-- Input for vote_type start -->
     <%= f.select :vote_type, options_for_select(Vote.vote_types.keys), {}, class: "form-control" %>
-    <!-- Input for vote_type end -->
     <% if vote_type_was_invalid %>
       <% vote.errors.full_messages_for(:vote_type).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -57,6 +46,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for vote_type end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

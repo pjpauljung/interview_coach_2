@@ -1,32 +1,18 @@
-<!-- Form question_assessment start -->
 <%= form_with(model: @question_assessment, local: true) do |f| %>
-<!-- Form question_assessment end -->
 
-  <!-- Label and input for question_id start -->
   <div class="form-group">
     <%= f.label :question_id %>
 
-    <!-- Input for question_id start -->
     <%= f.collection_select :question_id, Question.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for question_id end -->
   </div>
-  <!-- Label and input for question_id end -->
 
-  <!-- Label and input for interviewee_id start -->
-  <!-- Input for interviewee_id start -->
   <%= f.hidden_field :interviewee_id, value: @user.id %>
-  <!-- Input for interviewee_id end -->
-  <!-- Label and input for interviewee_id end -->
 
-  <!-- Label and input for question_session_id start -->
   <div class="form-group">
     <%= f.label :question_session_id %>
 
-    <!-- Input for question_session_id start -->
     <%= f.collection_select :question_session_id, QuestionSession.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for question_session_id end -->
   </div>
-  <!-- Label and input for question_session_id end -->
 
   <%= f.submit "Create question assessment", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

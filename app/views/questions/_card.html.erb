@@ -6,27 +6,21 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Creator</dt>
-      <!-- Display creator_id start -->
       <dd>
         <% if @question.creator.present? %>
           <%= link_to question.creator, question.creator %>
         <% end %>
       </dd>
-      <!-- Display creator_id end -->
 
       <dt>Company</dt>
-      <!-- Display company_id start -->
       <dd>
         <% if @question.company.present? %>
           <%= link_to question.company, question.company %>
         <% end %>
       </dd>
-      <!-- Display company_id end -->
 
       <dt>Question</dt>
-      <!-- Display question start -->
       <dd><%= question.question %></dd>
-      <!-- Display question end -->
 
     </dl>
 
@@ -35,7 +29,6 @@
         <%= link_to_show_or_back question, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link question start -->
       <div class="col">
         <% if current_user == @question.creator %>
           <%= link_to edit_question_url(question), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -43,9 +36,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link question end -->
 
-      <!-- Delete link question start -->
       <div class="col">
         <% if current_user == @question.creator %>
           <%= link_to question, method: :delete, data: { confirm: "Do you really want to delete this question?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -53,7 +44,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link question end -->
     </div>
   </div>
 

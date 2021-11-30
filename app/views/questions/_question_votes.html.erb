@@ -10,26 +10,20 @@
   <ul class="list-group list-group-flush">
     <% @question.votes.each do |vote| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to vote, vote %>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <% if current_user == vote.voter %>
           <%= link_to vote, method: :delete do %>
             <i class="fas fa-trash-alt"></i>
           <% end %>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="question_votes_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "questions/question_votes_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 
