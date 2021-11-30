@@ -68,7 +68,7 @@
 
     <%= f.label :question_session_id %>
     <!-- Input for question_session_id start -->
-    <%= f.number_field :question_session_id, class: question_session_class, placeholder: "Enter question session" %>
+    <%= f.collection_select :question_session_id, QuestionSession.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for question_session_id end -->
     <% if question_session_was_invalid %>
       <% question_assessment.errors.full_messages_for(:question_session).each do |message| %>

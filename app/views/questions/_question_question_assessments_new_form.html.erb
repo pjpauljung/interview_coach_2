@@ -23,7 +23,7 @@
     <%= f.label :question_session_id %>
 
     <!-- Input for question_session_id start -->
-    <%= f.text_field :question_session_id, class: "form-control" %>
+    <%= f.collection_select :question_session_id, QuestionSession.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for question_session_id end -->
   </div>
   <!-- Label and input for question_session_id end -->
