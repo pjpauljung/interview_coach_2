@@ -10,6 +10,9 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :votes,
+             foreign_key: :voter_id
+
   # Indirect associations
 
 end

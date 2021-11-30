@@ -8,6 +8,9 @@ class VoteResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :voter,
+             resource: UserResource
+
   # Indirect associations
 
 end
