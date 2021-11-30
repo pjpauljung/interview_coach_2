@@ -4,6 +4,8 @@ RSpec.describe Vote, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:question) }
+
     it { should belong_to(:voter) }
 
     end

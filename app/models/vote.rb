@@ -3,6 +3,8 @@ class Vote < ApplicationRecord
 
   # Direct associations
 
+  belongs_to :question
+
   belongs_to :voter,
              :class_name => "User"
 
