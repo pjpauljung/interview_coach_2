@@ -42,7 +42,7 @@
 
     <%= f.label :interviewee_id %>
     <!-- Input for interviewee_id start -->
-    <%= f.number_field :interviewee_id, class: interviewee_class, placeholder: "Enter interviewee" %>
+    <%= f.collection_select :interviewee_id, User.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for interviewee_id end -->
     <% if interviewee_was_invalid %>
       <% question_assessment.errors.full_messages_for(:interviewee).each do |message| %>

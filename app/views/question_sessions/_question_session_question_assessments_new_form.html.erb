@@ -17,7 +17,7 @@
     <%= f.label :interviewee_id %>
 
     <!-- Input for interviewee_id start -->
-    <%= f.text_field :interviewee_id, class: "form-control" %>
+    <%= f.collection_select :interviewee_id, User.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for interviewee_id end -->
   </div>
   <!-- Label and input for interviewee_id end -->
