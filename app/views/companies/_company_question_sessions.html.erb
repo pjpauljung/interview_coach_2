@@ -1,0 +1,35 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Question Sessions
+
+    <a data-toggle="collapse" href="#company_question_sessions_new_form">
+      Add question session
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @company.question_sessions.each do |question_session| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <%= link_to question_session, question_session %>
+        <!-- Show link end -->
+
+        <!-- Delete link start -->
+        <%= link_to question_session, method: :delete, data: { confirm: "Do you really want to delete this question_session" } do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+        <!-- Delete link end -->
+
+      </li>
+    <% end %>
+
+    <div class="card-footer">
+      <div class="collapse" id="company_question_sessions_new_form">
+        <!-- New associationcollection form start -->
+
+        <!-- New associationcollection form end -->
+      </div>
+    </div>
+
+  </ul>
+</div>

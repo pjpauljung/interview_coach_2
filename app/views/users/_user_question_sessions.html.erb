@@ -1,0 +1,29 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Question Sessions
+
+    <a data-toggle="collapse" href="#user_question_sessions_new_form">
+      Add question session
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @user.question_sessions.each do |question_session| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <%= link_to question_session, question_session %>
+        <!-- Show link end -->
+
+      </li>
+    <% end %>
+
+    <div class="card-footer">
+      <div class="collapse" id="user_question_sessions_new_form">
+        <!-- New associationcollection form start -->
+
+        <!-- New associationcollection form end -->
+      </div>
+    </div>
+
+  </ul>
+</div>
