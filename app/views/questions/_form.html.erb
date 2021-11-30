@@ -16,7 +16,7 @@
 
     <%= f.label :creator_id %>
     <!-- Input for creator_id start -->
-    <%= f.number_field :creator_id, class: creator_class, placeholder: "Enter creator" %>
+    <%= f.collection_select :creator_id, User.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for creator_id end -->
     <% if creator_was_invalid %>
       <% question.errors.full_messages_for(:creator).each do |message| %>
