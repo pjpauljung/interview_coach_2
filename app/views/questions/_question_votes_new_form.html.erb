@@ -23,7 +23,7 @@
     <%= f.label :vote_type %>
 
     <!-- Input for vote_type start -->
-    <%= f.text_field :vote_type, class: "form-control" %>
+    <%= f.select :vote_type, options_for_select(Vote.vote_types.keys), {}, class: "form-control" %>
     <!-- Input for vote_type end -->
   </div>
   <!-- Label and input for vote_type end -->

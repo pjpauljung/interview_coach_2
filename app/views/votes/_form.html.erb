@@ -68,7 +68,7 @@
 
     <%= f.label :vote_type %>
     <!-- Input for vote_type start -->
-    <%= f.number_field :vote_type, class: vote_type_class, placeholder: "Enter vote type" %>
+    <%= f.select :vote_type, options_for_select(Vote.vote_types.keys), {}, class: "form-control" %>
     <!-- Input for vote_type end -->
     <% if vote_type_was_invalid %>
       <% vote.errors.full_messages_for(:vote_type).each do |message| %>
