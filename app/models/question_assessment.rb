@@ -1,6 +1,8 @@
 class QuestionAssessment < ApplicationRecord
   # Direct associations
 
+  belongs_to :question_session
+
   belongs_to :question
 
   belongs_to :interviewee,

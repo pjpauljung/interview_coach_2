@@ -4,6 +4,8 @@ RSpec.describe QuestionSession, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:question_assessments) }
+
     it { should belong_to(:interviewee) }
 
     end
