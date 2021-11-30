@@ -1,6 +1,9 @@
 class QuestionSession < ApplicationRecord
   # Direct associations
 
+  belongs_to :interviewee,
+             :class_name => "User"
+
   # Indirect associations
 
   # Validations

@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :question_sessions,
+             :foreign_key => "interviewee_id",
+             :dependent => :destroy
+
   has_many   :question_assessments,
              :foreign_key => "interviewee_id",
              :dependent => :destroy
