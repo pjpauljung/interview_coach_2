@@ -1,0 +1,83 @@
+<% was_validated = vote.errors.any? %>
+
+<%= form_with(model: vote, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for voter_id start -->
+  <div class="form-group">
+    <% voter_class = "form-control" %>
+    <% voter_was_invalid = vote.errors.include?(:voter) %>
+
+    <% if was_validated %>
+      <% if voter_was_invalid %>
+        <% voter_class << " is-invalid" %>
+      <% else %>
+        <% voter_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :voter_id %>
+    <!-- Input for voter_id start -->
+    <%= f.number_field :voter_id, class: voter_class, placeholder: "Enter voter" %>
+    <!-- Input for voter_id end -->
+    <% if voter_was_invalid %>
+      <% vote.errors.full_messages_for(:voter).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for voter_id end -->
+  <!-- Label and input for question_id start -->
+  <div class="form-group">
+    <% question_class = "form-control" %>
+    <% question_was_invalid = vote.errors.include?(:question) %>
+
+    <% if was_validated %>
+      <% if question_was_invalid %>
+        <% question_class << " is-invalid" %>
+      <% else %>
+        <% question_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :question_id %>
+    <!-- Input for question_id start -->
+    <%= f.number_field :question_id, class: question_class, placeholder: "Enter question" %>
+    <!-- Input for question_id end -->
+    <% if question_was_invalid %>
+      <% vote.errors.full_messages_for(:question).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for question_id end -->
+  <!-- Label and input for vote_type start -->
+  <div class="form-group">
+    <% vote_type_class = "form-control" %>
+    <% vote_type_was_invalid = vote.errors.include?(:vote_type) %>
+
+    <% if was_validated %>
+      <% if vote_type_was_invalid %>
+        <% vote_type_class << " is-invalid" %>
+      <% else %>
+        <% vote_type_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :vote_type %>
+    <!-- Input for vote_type start -->
+    <%= f.number_field :vote_type, class: vote_type_class, placeholder: "Enter vote type" %>
+    <!-- Input for vote_type end -->
+    <% if vote_type_was_invalid %>
+      <% vote.errors.full_messages_for(:vote_type).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for vote_type end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
