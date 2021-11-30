@@ -1,4 +1,6 @@
 class QuestionSessionsController < ApplicationController
+  before_action :current_user_must_be_question_session_interviewee, only: [:edit, :update, :destroy] 
+
   before_action :set_question_session, only: [:show, :edit, :update, :destroy]
 
   # GET /question_sessions
@@ -58,6 +60,14 @@ class QuestionSessionsController < ApplicationController
 
 
   private
+
+  def current_user_must_be_question_session_interviewee
+    set_question_session
+    unless current_user == @question_session.interviewee
+      redirect_back fallback_location: root_path, alert: "You are not authorized for that."
+    end
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_question_session
       @question_session = QuestionSession.find(params[:id])

@@ -15,8 +15,10 @@
         <!-- Show link end -->
 
         <!-- Delete link start -->
-        <%= link_to question_session, method: :delete, data: { confirm: "Do you really want to delete this question_session" } do %>
-          <i class="fas fa-trash-alt"></i>
+        <% if current_user == question_session.interviewee %>
+          <%= link_to question_session, method: :delete do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
         <% end %>
         <!-- Delete link end -->
 
