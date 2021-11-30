@@ -5,7 +5,8 @@ class VotesController < ApplicationController
 
   # GET /votes
   def index
-    @votes = Vote.page(params[:page]).per(10)
+    @q = Vote.ransack(params[:q])
+    @votes = @q.result(:distinct => true).includes(:voter, :question).page(params[:page]).per(10)
   end
 
   # GET /votes/1

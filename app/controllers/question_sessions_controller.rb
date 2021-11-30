@@ -5,7 +5,8 @@ class QuestionSessionsController < ApplicationController
 
   # GET /question_sessions
   def index
-    @question_sessions = QuestionSession.page(params[:page]).per(10)
+    @q = QuestionSession.ransack(params[:q])
+    @question_sessions = @q.result(:distinct => true).includes(:interviewee, :question_assessments, :company).page(params[:page]).per(10)
   end
 
   # GET /question_sessions/1

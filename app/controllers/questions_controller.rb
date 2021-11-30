@@ -5,7 +5,8 @@ class QuestionsController < ApplicationController
 
   # GET /questions
   def index
-    @questions = Question.page(params[:page]).per(10)
+    @q = Question.ransack(params[:q])
+    @questions = @q.result(:distinct => true).includes(:creator, :votes, :question_assessments, :company).page(params[:page]).per(10)
   end
 
   # GET /questions/1
