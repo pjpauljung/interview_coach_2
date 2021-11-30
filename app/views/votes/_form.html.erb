@@ -42,7 +42,7 @@
 
     <%= f.label :question_id %>
     <!-- Input for question_id start -->
-    <%= f.number_field :question_id, class: question_class, placeholder: "Enter question" %>
+    <%= f.collection_select :question_id, Question.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for question_id end -->
     <% if question_was_invalid %>
       <% vote.errors.full_messages_for(:question).each do |message| %>
