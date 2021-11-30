@@ -2,30 +2,9 @@
 
 <%= form_with(model: vote, local: true, novalidate: true, class: "mb-3") do |f| %>
   <!-- Label and input for voter_id start -->
-  <div class="form-group">
-    <% voter_class = "form-control" %>
-    <% voter_was_invalid = vote.errors.include?(:voter) %>
-
-    <% if was_validated %>
-      <% if voter_was_invalid %>
-        <% voter_class << " is-invalid" %>
-      <% else %>
-        <% voter_class << " is-valid" %>
-      <% end %>
-    <% end %>
-
-    <%= f.label :voter_id %>
-    <!-- Input for voter_id start -->
-    <%= f.collection_select :voter_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for voter_id end -->
-    <% if voter_was_invalid %>
-      <% vote.errors.full_messages_for(:voter).each do |message| %>
-        <div class="invalid-feedback d-flex">
-          <%= message %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
+  <!-- Input for "voter_id" start -->
+  <%= f.hidden_field :voter_id, value: current_user.id %>
+  <!-- Input for "voter_id" end -->
   <!-- Label and input for voter_id end -->
   <!-- Label and input for question_id start -->
   <div class="form-group">

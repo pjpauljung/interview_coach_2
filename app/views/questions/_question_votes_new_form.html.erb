@@ -3,13 +3,9 @@
 <!-- Form vote end -->
 
   <!-- Label and input for voter_id start -->
-  <div class="form-group">
-    <%= f.label :voter_id %>
-
-    <!-- Input for voter_id start -->
-    <%= f.collection_select :voter_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for voter_id end -->
-  </div>
+  <!-- Input for "voter_id" start -->
+  <%= f.hidden_field :voter_id, value: current_user.id %>
+  <!-- Input for "voter_id" end -->
   <!-- Label and input for voter_id end -->
 
   <!-- Label and input for question_id start -->
