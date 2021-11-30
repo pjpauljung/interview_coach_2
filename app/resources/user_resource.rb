@@ -10,6 +10,9 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :question_assessments,
+             foreign_key: :interviewee_id
+
   has_many   :created_questions,
              resource: QuestionResource,
              foreign_key: :creator_id
